@@ -1,0 +1,130 @@
+@import url(../css/variable.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    height: 100vh;
+    background-color: var(--main-color);
+    position: relative;
+    
+}
+header,
+footer{
+    padding: .625rem;
+    background-color: white;
+}
+
+/* 
+++++++++++++++
+header
+++++++++++++++
+*/
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header img{
+    width: 2.5rem;
+}
+
+header h1{
+   text-align: left;
+}
+
+button{
+    padding: .3125rem 1.875rem;
+    border-radius: .625rem;
+}
+#sez-logo,
+#mod-gioco{
+    width: 50%;
+    margin: 0 .9375rem;
+}
+#sez-logo{
+    display: flex;
+    gap: .625rem;
+}
+#mod-gioco{
+    text-align: right;
+}
+/* 
+++++++++++++++
+main
+++++++++++++++
+*/
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.875rem;
+}
+
+.container{
+    display: none;
+    height: 31.25rem;
+    width: 31.25rem;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.casella{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.casella9{
+    width: calc(100% / 9);
+    height: calc(100% / 9);;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.casella7{
+    width: calc(100% / 7);
+    height: calc(100% / 7);;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cambio-colore{
+    background-color: var(--click-color);
+}
+
+.show{
+    display: flex;
+}
+/* 
+++++++++++++++
+footer
+++++++++++++++
+*/
+footer{
+    padding: 1.25rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+footer i{
+    font-size:  .625rem;
+    vertical-align: middle;
+}
+
+.made{
+    margin: 0 .9375rem;
+}
