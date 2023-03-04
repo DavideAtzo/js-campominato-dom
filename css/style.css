@@ -67,11 +67,11 @@ main{
 }
 
 .container{
-    display: none;
+    display: flex;
     height: 31.25rem;
     width: 31.25rem;
     flex-wrap: wrap;
-    align-content: flex-start;
+    align-content: center;
 }
 .casella{ 
     border: 1px solid black;
@@ -97,6 +97,10 @@ main{
 
 .cambio-colore{
     background-color: var(--click-color);
+}
+
+.bomba{
+    background-color: red;
 }
 
 .show{

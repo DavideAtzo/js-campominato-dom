@@ -1,82 +1,82 @@
-'use strict';
-// funziona che crea la cella 
-function creaCasella(tagElement, className, number, bomb) {
-    const element = document.createElement(tagElement);
-    element.classList.add(className);
-    element.innerText = number;
-    element.innerText = bomb;
-    element.addEventListener(
-        'click',
-        function () {
-            console.log(number);
-            element.classList.add('cambio-colore');
-        }
-    )
-    return element;
-}
-// generatore di bombe 
-function generatoreBombe() {
-    let listaBombe = [];
-    while (listaBombe.length < 16) {
-        let bomb = Math.floor(Math.random() * 16) + 1;
-        if (!listaBombe.includes(bomb)) {
-            listaBombe.push(bomb);
-        }
-    }console.log(listaBombe);
-    return listaBombe;
-}
-
-function selDifficolta(difficolta) {
-    let tipoDifficolta = '';
-    switch (difficolta) {
-        case 'difficile':
-            tipoDifficolta = 'casella9';
-            break;
-        case 'normale':
-            tipoDifficolta = 'casella7';
-            break;
-        default:
-            tipoDifficolta = 'cella';
-    };
-    return tipoDifficolta;
-}
-
-
-
-// funzione che crea il tabellone di gioco 
-// function Tabellone() {
-//     const container = document.querySelector('.container');
-//     container.innerHTML = '';
-//     let selDifficolta = livDifficolta.value
-//     console.log(selDifficolta);
-//     // condizione che comprende la creazione del tabellone di gioco in base alla difficolta 
-//     if (selDifficolta === 'difficile') {
-//         cellNumber = 49;
-//         for (let i = 1; i <= cellNumber; i++) {
-//             const creaTabellone = creaCasella('div', 'casella7', i, bomb[i]);
-//             container.append(creaTabellone);
-//         }
-//     } else if (selDifficolta === 'normale') {
-//         cellNumber = 81;
-//         for (let i = 1; i <= cellNumber; i++) {
-//             const creaTabellone = creaCasella('div', 'casella9', i, bomb[i]);
-//             container.append(creaTabellone);
-//         }
-//     } else {
-//         cellNumber = 100;
-//         for (let i = 1; i <= cellNumber; i++) {
-//             const creaTabellone = creaCasella('div', 'casella', i, bomb);
-//             container.append(creaTabellone);
-//         }
-//     }
-//     container.classList.add('show')
-// }
-
-
-let cellNumber = 0;
-const livDifficolta = document.getElementById('difficoltà');
-
-
+'use strict'
+// prendo elemento bottone dall'DOM 
 const btnPlay = document.getElementById('btn-play');
-
-btnPlay.addEventListener('click', Tabellone);
+// evento bottone che crea caselle con le bombe ed evento click casella 
+btnPlay.addEventListener('click', function() {
+    const container = document.querySelector('.container');
+    container.innerHTML = ''
+    // se la difficolta è difficile 
+    if(livDifficolta.value == 'difficile'){
+        generatoreBombe(49);
+        for (let i = 1; i <= 49; i++){
+            // aggiungo elementi ('')
+            let element = document.createElement('div');
+            element.classList.add('casella');
+            element.classList.add('casella7')
+            element.innerHTML = i;
+            container.append(element);
+            element.addEventListener('click', function(){
+                for(let j = 0; j < bombeList.length; j++){
+                    if(i == bombeList[j]){
+                        element.classList.add('bomba');
+                    }else{
+                        element.classList.add('cambio-colore');
+                    } 
+                }
+            })
+        }
+        // se la difficolta è normale 
+    }else if(livDifficolta.value == 'normale'){
+        generatoreBombe(81)
+        for (let i = 1; i <= 81; i++){
+            // aggiungo elementi ('')
+            let element = document.createElement('div');
+            element.classList.add('casella');
+            element.classList.add('casella9');
+            element.innerHTML = i;
+            container.append(element);
+            element.addEventListener('click', function(){
+                for(let j = 0; j < bombeList.length; j++){
+                    if(i == bombeList[j]){
+                        element.classList.add('bomba');
+                    }else{
+                        element.classList.add('cambio-colore');
+                    } 
+                }
+            })
+        }
+        // se la difficolta è facile
+    }else{
+        generatoreBombe(100)
+        for (let i = 1; i <= 100; i++){
+            // aggiungo elementi ('')
+            let element = document.createElement('div');
+            element.classList.add('casella');
+            element.classList.add('casella10');
+            element.innerHTML = i;
+            container.append(element);
+            element.addEventListener('click', function(){
+                for(let j = 0; j < bombeList.length; j++){
+                    if(i == bombeList[j]){
+                        element.classList.add('bomba');
+                    }else{
+                        element.classList.add('cambio-colore');
+                    } 
+                }
+            })
+        }
+    }
+    container.classList.add('show')
+})
+// generatore bombe 
+function generatoreBombe(max){
+    bombeList = [];
+    while(bombeList.length < 16){
+    let randomNumber = Math.floor(Math.random() * max);
+    if(!bombeList.includes(randomNumber)){
+        bombeList.push(randomNumber);
+    }
+    }
+}
+const livDifficolta = document.getElementById('difficoltà');
+let bombeList; 
