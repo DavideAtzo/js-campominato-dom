@@ -80,5 +80,3 @@ const livDifficolta = document.getElementById('difficoltà');
 const btnPlay = document.getElementById('btn-play');
 
 btnPlay.addEventListener('click', Tabellone);
-
-

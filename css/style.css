@@ -73,30 +73,26 @@ main{
     flex-wrap: wrap;
     align-content: flex-start;
 }
-.casella{
-    width: calc(100% / 10);
-    height: calc(100% / 10);
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.casella9{
-    width: calc(100% / 9);
-    height: calc(100% / 9);;
+.casella{ 
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+.casella10{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.casella9{
+    width: calc(100% / 9);
+    height: calc(100% / 9);;
+}
+
 .casella7{
     width: calc(100% / 7);
     height: calc(100% / 7);;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .cambio-colore{
