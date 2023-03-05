@@ -1,4 +1,15 @@
 'use strict'
+// generatore bombe 
+function generatoreBombe(max){
+    bombeList = [];
+    while(bombeList.length < 16){
+    let randomNumber = Math.floor(Math.random() * max);
+    if(!bombeList.includes(randomNumber)){
+        bombeList.push(randomNumber);
+    }
+    }
+}
+
 // prendo elemento bottone dall'DOM 
 const btnPlay = document.getElementById('btn-play');
 // evento bottone che crea caselle con le bombe ed evento click casella 
@@ -15,7 +26,9 @@ btnPlay.addEventListener('click', function() {
             element.classList.add('casella7')
             element.innerHTML = i;
             container.append(element);
-            element.addEventListener('click', function(){
+            // cambio colore al click 
+            element.addEventListener('click',
+             function(){
                 for(let j = 0; j < bombeList.length; j++){
                     if(i == bombeList[j]){
                         element.classList.add('bomba');
@@ -35,6 +48,7 @@ btnPlay.addEventListener('click', function() {
             element.classList.add('casella9');
             element.innerHTML = i;
             container.append(element);
+            // cambio colore al click 
             element.addEventListener('click', function(){
                 for(let j = 0; j < bombeList.length; j++){
                     if(i == bombeList[j]){
@@ -55,12 +69,14 @@ btnPlay.addEventListener('click', function() {
             element.classList.add('casella10');
             element.innerHTML = i;
             container.append(element);
-            element.addEventListener('click', function(){
+            // cambio colore al click 
+            element.addEventListener('click', function(punteggio){
                 for(let j = 0; j < bombeList.length; j++){
                     if(i == bombeList[j]){
                         element.classList.add('bomba');
                     }else{
                         element.classList.add('cambio-colore');
+                        
                     } 
                 }
             })
@@ -68,15 +84,6 @@ btnPlay.addEventListener('click', function() {
     }
     container.classList.add('show')
 })
-// generatore bombe 
-function generatoreBombe(max){
-    bombeList = [];
-    while(bombeList.length < 16){
-    let randomNumber = Math.floor(Math.random() * max);
-    if(!bombeList.includes(randomNumber)){
-        bombeList.push(randomNumber);
-    }
-    }
-}
+
 const livDifficolta = document.getElementById('difficoltà');
 let bombeList; 
